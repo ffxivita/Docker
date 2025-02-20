@@ -46,11 +46,11 @@ jobs:
                       branch: stg
         steps:
             - name: Set Up
-              uses: docker/setup-qemu-action@v3
+              uses: docker/setup-qemu-action@4574d27a4764455b42196d70a065bc6853246a25 # v3
             - name: Docker Buildx
-              uses: docker/setup-buildx-action@v3
+              uses: docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca # v3
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
             - name: Determine whether to push to registry
               run: |
                   if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
@@ -59,7 +59,7 @@ jobs:
                     echo "PUSH_REGISTRY=true" >> $GITHUB_ENV
                   fi
             - name: Login to container registry
-              uses: docker/login-action@v3
+              uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3
               with:
                 registry: ${{ env.REGISTRY }}     
                 username: ${{ github.actor }}
@@ -67,7 +67,7 @@ jobs:
                 logout: true
             - name: Extract Metadata
               id: meta
-              uses: docker/metadata-action@v5
+              uses: docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96 # v5
               with:
                 images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
                 tags: ${{ matrix.release.tags }}
@@ -91,7 +91,7 @@ jobs:
             packages: write
         steps:
             - name: Prune Untagged
-              uses: vlaurin/action-ghcr-prune@v0.6.0
+              uses: vlaurin/action-ghcr-prune@0cf7d39f88546edd31965acba78cdcb0be14d641 # v0.6.0
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 container: docker
