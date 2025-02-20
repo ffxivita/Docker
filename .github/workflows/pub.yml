@@ -94,6 +94,6 @@ jobs:
               uses: vlaurin/action-ghcr-prune@v0.6.0
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
-                container: docker-dalamud
+                container: ${{ github.repository }}
                 keep-younger-than: 7
                 prune-untagged: true          
