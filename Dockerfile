@@ -11,6 +11,6 @@ RUN apk add --no-cache wget unzip \
     && unzip dalamud.zip -d dalamud
 
 # Build the image
-FROM {OS}
+FROM ${OS}
 ENV DALAMUD_HOME=/usr/lib/dalamud
 COPY --from=builder /build/dalamud/ ${DALAMUD_HOME}/
