@@ -36,7 +36,7 @@ jobs:
                       base: mcr.microsoft.com/dotnet/sdk:8.0-bookworm-slim
                       branch: latest
                     - tags: stg-bookworm-slim
-                      base: cr.microsoft.com/dotnet/sdk:8.0-bookworm-slim
+                      base: mcr.microsoft.com/dotnet/sdk:8.0-bookworm-slim
                       branch: stg
                     - tags: latest-alpine
                       base: mcr.microsoft.com/dotnet/sdk:8.0-alpine
